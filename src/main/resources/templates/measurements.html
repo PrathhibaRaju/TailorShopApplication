@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Customer & Measurements</title>
+</head>
+<body>
+    <h2>Add New Customer</h2>
+
+    <form th:action="@{/customers/save}" method="post" th:object="${customer}">
+        <!-- Customer Fields -->
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+
+        <label>Phone:</label>
+        <input type="text" th:field="*{phone}" /><br/>
+
+        <label>Address:</label>
+        <input type="text" th:field="*{address}" /><br/>
+
+        <!-- Measurement Fields -->
+        <input type="hidden" th:field="${measurement.id}" />
+        <label>Chest:</label>
+        <input type="number" th:field="${measurement.chest}" step="0.1" /><br/>
+
+        <label>Waist:</label>
+        <input type="number" th:field="${measurement.waist}" step="0.1" /><br/>
+
+        <label>Sleeve:</label>
+        <input type="number" th:field="${measurement.sleeve}" step="0.1" /><br/>
+
+        <label>Length:</label>
+        <input type="number" th:field="${measurement.length}" step="0.1" /><br/>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
